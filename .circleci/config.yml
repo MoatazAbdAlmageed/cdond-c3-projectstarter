@@ -22,6 +22,7 @@ commands:
             # sudo ./aws/install 
             sudo apt install -y python3
             sudo apt install python3.8-venv
+            sudo apt install python-is-python3
             curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
             unzip awscli-bundle.zip
             sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
@@ -51,6 +52,7 @@ commands:
             #sudo apt -y update && apt install -y python3
             sudo apt install -y python3
             sudo apt install python3.8-venv
+            sudo apt install python-is-python3
             sudo apt install -y ansible
   install_nodejs:
     description: Install Node.js 13.8.0
@@ -249,6 +251,7 @@ jobs:
             # sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update
             sudo apt install -y python3
             sudo apt install python3.8-venv
+            sudo apt install python-is-python3
             curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
             unzip awscli-bundle.zip
             sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
