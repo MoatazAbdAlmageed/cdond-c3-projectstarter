@@ -302,8 +302,9 @@ jobs:
           name: Run migrations
           command: |
             cd backend
+            echo "install packages"
             npm install 
-            npm audit fix 
+            echo "run migrations"
             npm run migrations > migrations_dump.txt
 
       - run:
