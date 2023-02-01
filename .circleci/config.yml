@@ -20,7 +20,7 @@ commands:
             sudo apt -y install vim 
             # sudo unzip awscliv2.zip 
             # sudo ./aws/install 
-            sudo apt install -y python
+            sudo apt install -y python3
             sudo apt install python3.8-venv
             curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
             unzip awscli-bundle.zip
