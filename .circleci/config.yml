@@ -24,6 +24,7 @@ commands:
             sudo apt install python3.8-venv
             sudo apt install python-is-python3
             curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+            rm awscli-bundle/ -r
             unzip awscli-bundle.zip
             sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
 
@@ -252,6 +253,7 @@ jobs:
             sudo apt install -y python3
             sudo apt install python3.8-venv
             sudo apt install python-is-python3
+            rm awscli-bundle/ -r
             curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
             unzip awscli-bundle.zip
             sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
