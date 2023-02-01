@@ -20,6 +20,7 @@ commands:
             sudo apt -y install vim 
             # sudo unzip awscliv2.zip 
             # sudo ./aws/install 
+            sudo apt install -y python
             curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
             unzip awscli-bundle.zip
             sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
@@ -244,6 +245,7 @@ jobs:
             # sudo unzip awscliv2.zip 
             # sudo ./aws/install 
             # sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update
+            sudo apt install -y python
             curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
             unzip awscli-bundle.zip
             sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
