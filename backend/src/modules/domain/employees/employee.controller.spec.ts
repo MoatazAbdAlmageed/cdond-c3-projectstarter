@@ -37,7 +37,7 @@ describe('Employee Controller', () => {
         displayName: 'Jimmy',
         effectiveDate: '2018-22-10',
         companyEmail: 'jimmyramos@acklenavenue.com',
-        firstName: 'Jimmy',
+        xfirstName: 'Jimmy',
         gender: 'Male',
         lastName: 'Ramos',
         middleName: 'Josue',
@@ -71,7 +71,7 @@ describe('Employee Controller', () => {
       };
 
       // Act
-      await employeeController.changeNames(100,request);
+      await employeeController.changeNames(100, request);
 
       // Assert
       expect(fakeCommandDispatcher.execute).toHaveBeenCalledWith(request);
@@ -100,7 +100,7 @@ describe('Employee Controller', () => {
       // Arrange
       const request = {
         employeeId: 100,
-        displayName: 'Jimmy'
+        displayName: 'Jimmy',
       };
 
       // Act
@@ -131,7 +131,7 @@ describe('Employee Controller', () => {
       const request = {
         employeeId: 100,
         phoneNumber: '50494621230',
-        };
+      };
 
       // Act
       await employeeController.changePhoneNumber(100, request);
@@ -146,7 +146,7 @@ describe('Employee Controller', () => {
       const request = {
         employeeId: 100,
         personalEmail: 'jimmybanegas93@gmail.com',
-        };
+      };
 
       // Act
       await employeeController.changePersonalEmail(100, request);
@@ -161,7 +161,7 @@ describe('Employee Controller', () => {
       const request = {
         employeeId: 100,
         companyEmail: 'jimmyramos@acklenavenue.com',
-        };
+      };
 
       // Act
       await employeeController.changeCompanyEmail(100, request);
@@ -175,7 +175,7 @@ describe('Employee Controller', () => {
       // Arrange
       const request = {
         employeeId: 100,
-        salary: 10
+        salary: 10,
       };
 
       // Act
@@ -191,7 +191,7 @@ describe('Employee Controller', () => {
       const request = {
         employeeId: 100,
         salaryType: 'Montly',
-        };
+      };
 
       // Act
       await employeeController.changeSalaryType(100, request);
@@ -206,7 +206,7 @@ describe('Employee Controller', () => {
       const request = {
         employeeId: 100,
         effectiveDate: '2018-22-10',
-        };
+      };
 
       // Act
       await employeeController.changeEffectiveDate(100, request);
@@ -221,7 +221,7 @@ describe('Employee Controller', () => {
       const request = {
         employeeId: 100,
         birthdate: '1993-14-04',
-        };
+      };
 
       // Act
       await employeeController.changeBirthDate(100, request);
@@ -233,10 +233,13 @@ describe('Employee Controller', () => {
   describe('when a UPDATE request is sent to the controller', () => {
     it('should disptach deactivateEmployee employee command', async () => {
       // Arrange
-      const employee = { employeeId: 10, isActive: false};
+      const employee = { employeeId: 10, isActive: false };
 
       // Act
-      await employeeController.deactivateEmployee(employee.employeeId, employee.isActive);
+      await employeeController.deactivateEmployee(
+        employee.employeeId,
+        employee.isActive,
+      );
 
       // Assert
       expect(fakeCommandDispatcher.execute).toBeCalledTimes(13);
@@ -248,7 +251,10 @@ describe('Employee Controller', () => {
       const employee = { employeeId: 10, isActive: true };
 
       // Act
-      await employeeController.activateEmployee(employee.employeeId, employee.isActive);
+      await employeeController.activateEmployee(
+        employee.employeeId,
+        employee.isActive,
+      );
 
       // Assert
       expect(fakeCommandDispatcher.execute).toBeCalledTimes(14);
