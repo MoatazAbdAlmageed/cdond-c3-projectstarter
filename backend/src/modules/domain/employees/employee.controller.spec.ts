@@ -37,7 +37,7 @@ describe('Employee Controller', () => {
         displayName: 'Jimmy',
         effectiveDate: '2018-22-10',
         companyEmail: 'jimmyramos@acklenavenue.com',
-        xfirstName: 'Jimmy',
+        firstName: 'Jimmy',
         gender: 'Male',
         lastName: 'Ramos',
         middleName: 'Josue',
