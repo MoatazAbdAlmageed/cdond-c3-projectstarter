@@ -108,12 +108,14 @@ commands:
 jobs:
   build-frontend:
     docker:
+      #- image: circleci/node:13.8.0
       - image: cimg/node:13.8.0
     steps:
       - checkout
       - restore_cache:
           key: frontend-deps-{{ checksum "frontend/package-lock.json" }}
       - run:
+
           name: Build front-end
           command: |
             cd frontend
@@ -138,13 +140,14 @@ jobs:
             # npm i ts-node typescript
             npm install
             npm run build
+      ##- install_nodemodules
       - save_cache:
           paths: [backend/node_modules]
           key: backend-deps-{{ checksum "backend/package-lock.json" }}
 
   test-frontend:
     docker:
-      - image: cimg/node:13.8.0
+      - image: cimg/node:13.8.0 # Docker image here
     steps:
       - checkout
       - restore_cache:
@@ -158,7 +161,7 @@ jobs:
 
   test-backend:
     docker:
-      - image: cimg/node:13.8.0
+      - image: cimg/node:13.8.0 # Docker image here
     steps:
       - checkout
       - restore_cache:
