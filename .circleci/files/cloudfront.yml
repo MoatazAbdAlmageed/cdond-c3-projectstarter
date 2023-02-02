@@ -33,7 +33,7 @@ Resources:
 Outputs:
   WorkflowID:
     Value: !Sub ${WorkflowID}
-    Description: https://udapeople-mtz.s3.amazonaws.com
+    Description: URL for website hosted on S3
 
     Export:
       Name: WorkflowID
