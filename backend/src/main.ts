@@ -2,7 +2,6 @@ import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { ExpressAdapter } from '@nestjs/platform-express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import * as cors from 'cors';
 import * as express from 'express';
 import { AppLogger } from './modules/app/app.logger';
 import { AppModule } from './modules/app/app.module';
@@ -42,18 +41,25 @@ async function bootstrap() {
   SwaggerModule.setup(`api/${apiVersionPrefix}`, app, document);
   const config: ConfigService = app.get('ConfigService');
   const whitelist = config.CORS_WHITELIST;
-  const corsOptions = {
-    origin(origin, callback) {
-      const isOriginAllowed = whitelist.indexOf(origin) !== -1;
-      const allowAccessAnyway = whitelist.length === 0;
-      if (isOriginAllowed || allowAccessAnyway) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-  };
-  app.use(cors(corsOptions));
+  // const corsOptions = {
+  //   origin(origin, callback) {
+  //     const isOriginAllowed = whitelist.indexOf(origin) !== -1;
+  //     const allowAccessAnyway = whitelist.length === 0;
+  //     if (isOriginAllowed || allowAccessAnyway) {
+  //       callback(null, true);
+  //     } else {
+  //       callback(new Error('Not allowed by CORS'));
+  //     }
+  //   },
+  // };
+  // app.use(cors(corsOptions));
+  app.enableCors();
+  app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Accept');
+    next();
+  });
   app.useGlobalFilters(new ErrorFilter());
   await app.listen(config.PORT);
   logger.log(`Listening on port ${config.PORT}.`);
